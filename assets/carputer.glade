@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="MainWindow">
+    <property name="width_request">320</property>
+    <property name="height_request">240</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="default_width">320</property>
+    <property name="default_height">240</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="FixedLayout">
+        <property name="width_request">320</property>
+        <property name="height_request">240</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkEventBox" id="MainEb">
+            <property name="width_request">320</property>
+            <property name="height_request">240</property>
+            <property name="visible">True</property>
+            <property name="events">GDK_BUTTON_PRESS_MASK | GDK_STRUCTURE_MASK</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkImage" id="BgImage">
+                <property name="visible">True</property>
+                <property name="pixbuf">main.png</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="TrackEb">
+            <property name="width_request">200</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkLabel" id="TrackLabel">
+                <property name="visible">True</property>
+                <property name="label">&lt;span foreground="#ffba00" font="LCARS 16" font_stretch="normal"&gt;Track Name&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="justify">center</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">110</property>
+            <property name="y">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="ArtistEb">
+            <property name="width_request">200</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkLabel" id="ArtistLabel">
+                <property name="visible">True</property>
+                <property name="label">&lt;span foreground="#ffba00" font="LCARS 16" font_stretch="normal"&gt;Artist Name&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="justify">center</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">110</property>
+            <property name="y">170</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="AlbumEb">
+            <property name="width_request">95</property>
+            <property name="height_request">95</property>
+            <property name="visible">True</property>
+            <property name="events">GDK_BUTTON_PRESS_MASK | GDK_STRUCTURE_MASK</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkImage" id="AlbumImage">
+                <property name="visible">True</property>
+                <property name="pixbuf">paused.png</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">110</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="TimeEb">
+            <property name="width_request">80</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkLabel" id="TimeLabel">
+                <property name="visible">True</property>
+                <property name="xalign">1</property>
+                <property name="label">&lt;span foreground="#000000" font="LCARS 22" font_stretch="normal"&gt;12:34:56&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="justify">right</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">15</property>
+            <property name="y">165</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkDrawingArea" id="Speedo">
+            <property name="width_request">95</property>
+            <property name="height_request">95</property>
+            <property name="visible">True</property>
+            <property name="events">GDK_BUTTON_PRESS_MASK | GDK_STRUCTURE_MASK</property>
+          </object>
+          <packing>
+            <property name="x">210</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="AlbumWindow">
+    <property name="width_request">320</property>
+    <property name="height_request">240</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="default_width">320</property>
+    <property name="default_height">240</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="urgency_hint">True</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="AwFixedLayout">
+        <property name="width_request">320</property>
+        <property name="height_request">240</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkEventBox" id="AwMainEb">
+            <property name="width_request">320</property>
+            <property name="height_request">240</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkImage" id="AwBgImage">
+                <property name="visible">True</property>
+                <property name="pixbuf">selectalbum.png</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="AwAlbumEb">
+            <property name="width_request">160</property>
+            <property name="height_request">160</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkImage" id="AwAlbumImage">
+                <property name="visible">True</property>
+                <property name="pixbuf">aa.png</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">80</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="AwAlbumNameEb">
+            <property name="width_request">300</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkLabel" id="AwAlbumNameLabel">
+                <property name="visible">True</property>
+                <property name="label">&lt;span foreground="#ffba00" font="LCARS 16" font_stretch="normal"&gt;Album Name&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="justify">center</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">208</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="PostcodeWindow">
+    <property name="width_request">320</property>
+    <property name="height_request">240</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="default_width">320</property>
+    <property name="default_height">240</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="urgency_hint">True</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="PwFixedLayout">
+        <property name="width_request">320</property>
+        <property name="height_request">240</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkEventBox" id="PwMainEb">
+            <property name="width_request">320</property>
+            <property name="height_request">240</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <child>
+              <object class="GtkImage" id="PwMainImage">
+                <property name="visible">True</property>
+                <property name="pixbuf">postcode.png</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkDrawingArea" id="PostcodeDrawingArea">
+            <property name="width_request">320</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="y">45</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
