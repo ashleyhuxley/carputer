@@ -6,40 +6,58 @@ Gtkmm in-car computer for rasperry pi
 Before this code can be compiled, there are a number of dependencies that must be installed:
 
 Libraries required by Carputer:
+
 	sudo apt-get install libmpg123-dev					# MP3 library
+	
 	sudo apt-get install libao-dev						# Sound driver library
+	
 	sudo apt-get install libconfig++-dev				# For reading config files
+	
 	sudo apt-get install libgtkmm-3.0-dev				# C++ wrapper around GTK (for user interface)
+	
 	sudo apt-get install libsqlite3-dev					# SQLite - For reading postcode database
 
 GPSD must be compiled from source. Using apt-get will not install the library:
+
 	wget http://download.savannah.gnu.org/releases/gpsd/gpsd-3.11.tar.gz
+	
 	tar -xzf gpsd-3.11.tar.gz
+	
 	cd gpsd-3.11
 
 Install scons (required to build gpsd):
+
 	sudo apt-get install scons
 
 Install libraries required by gpsd:
+
 	sudo apt-get install libncurses-dev
+	
 	sudo apt-get install python-dev
 
 Build gpsd:
+
 	scons
+	
 	scons check
+	
 	sudo scons udev-install
 	
 You also need to upgrade GCC to the latest version so that you can use the new C++ 11 standard:
+
 	sudo apt-get install gcc-4.7 g++-4.7
+	
 	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6
+	
 	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.7
 
 Then run this command and select gcc-4.7.
+
 	sudo update-alternatives --config gcc
 
 You should then be able to compile the code just by typing:
 
-make
+	make
 
 
 
@@ -56,7 +74,9 @@ The file 'carputer.glade' is the UI of the application. it is loaded at runtime 
 carputer.cfg contains the configuration:
 
 musicpath - Path to the directory where the MP3s are (more on this later)
+
 assetspath - Path to the directory containing carputer.glade and the graphics (I keep them in /etc/carputer)
+
 postcodedb - This is for postcode lookup - a SQLite db containing a Postcode to Lat/Lng lookup table. It's 75Mb so I haven't included it. Let me know if you want it.
 
 The GPIO pins are for the steering wheel controls. There are four buttons that control the application: Next, previous, navigate and mode. The pins for those are configured here.
@@ -75,14 +95,23 @@ Anything else in the album dir is ignored.
 So for example if your root music dir is /media/PENDRIVE, your layout would look like this:
 
 /media/PENDRIVE/Pink Floyd - Dark Side of the Moon/01 - Speak to Me.mp3
+
 /media/PENDRIVE/Pink Floyd - Dark Side of the Moon/02 - Breathe.mp3
+
 ...
+
 /media/PENDRIVE/Pink Floyd - Dark Side of the Moon/10 - Eclipse.mp3
+
 /media/PENDRIVE/Pink Floyd - Dark Side of the Moon/albumart.png
+
 /media/PENDRIVE/Michael Jackson - Thriller/01 - Wanna Be Startin Somethin.mp3
+
 /media/PENDRIVE/Michael Jackson - Thriller/02 - Baby Be Mine.mp3
+
 ...
+
 /media/PENDRIVE/Michael Jackson - Thriller/09 - The Lady In My Life.mp3
+
 /media/PENDRIVE/Michael Jackson - Thriller/albumart.png
 
 
