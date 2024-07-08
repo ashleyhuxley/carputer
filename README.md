@@ -1,7 +1,7 @@
 # carputer
 Gtkmm in-car computer for rasperry pi
 
-##DEPENDENCIES
+## DEPENDENCIES
 
 Before this code can be compiled, there are a number of dependencies that must be installed:
 
@@ -61,7 +61,7 @@ You should then be able to compile the code just by typing:
 
 
 
-##ABOUT THE PROJECT
+## ABOUT THE PROJECT
 
 Quite a lot of this is custom code written to my tight specifications so everything has to be done in a certain way. It's not written to be highly configurable - I wrote it with myself and my own requirements in mind with no plans to make it a releasable project so you'll have to bear with me for those bits :)
 
@@ -115,7 +115,7 @@ So for example if your root music dir is /media/PENDRIVE, your layout would look
 /media/PENDRIVE/Michael Jackson - Thriller/albumart.png
 
 
-##CONSIDERATIONS
+## CONSIDERATIONS
 
 This is my first ever C++ application so bear that in mind. (I'm a C# developer by trade). There might be a whole load of bugs/memory leaks.
 
